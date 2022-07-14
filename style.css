@@ -1,0 +1,45 @@
+{margin:0; padding:0; box-sizing:border-box;}
+ul, li {list-style: none;}
+
+.box {
+  display: flex;
+  width: 900px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.picture {
+  flex-shrink: 0;
+  width: 900px;
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  transition: all 3s;
+
+  /* 5초마다 슬라이드 롤링 */
+  animation-name: rolling;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+
+}
+
+#picture1 { background-image: url("before.jpg"); }
+#picture2 { background-image: url("now.jpg"); }
+#picture3 { background-image: url("after.jpg"); }
+
+[id="slide1"]:checked ~ .box .picture {transform: translateX(0);}
+[id="slide2"]:checked ~ .box .picture {transform: translateX(-100%);}
+[id="slide3"]:checked ~ .box .picture {transform: translateX(-200%);}
+
+
+
+@keyframes rolling {
+  0% { transform: translateX(0); }
+  49% { transform: translateX(-100%); }
+  99% { transform: translateX(-200%); }
+  100% { transform: translateX(0); }
+}
+
+
+
+
